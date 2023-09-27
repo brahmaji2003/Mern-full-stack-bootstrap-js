@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_task-8</title>
+    <script>
+        function v1() {
+            var fname = document.getElementById("fname").value;
+            if(fname.length == 0) {}
+            else if(fname.length > 0 && fname.length < 5) {
+                document.getElementById("msg1").innerText = "POOR";
+            }
+            else {
+                document.getElementById("msg1").innerText = "GOOD";
+                document.getElementById("msg1").style.color = "Green";
+            }
+        }
+
+        function v2() {
+            var lname = document.getElementById("lname").value;
+            if(lname.length == 0) {}
+            else if(lname.length > 0 && lname.length < 5) {
+                document.getElementById("msg2").innerText = "POOR";
+            }
+            else {
+                document.getElementById("msg2").innerText = "GOOD";
+                document.getElementById("msg2").style.color = "Green";
+            }
+        }
+
+        function v3(){
+            var email = document.getElementById("email").value;
+            var email_regex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+            if(!email.match(email_regex)){
+                document.getElementById("msg3").innerText="POOR";
+                document.getElementById("msg3").style.color="Red";
+            }
+            else{
+                document.getElementById("msg3").innerText="GOOD";
+                document.getElementById("msg3").style.color="Green";
+            }
+        }
+
+        function v4() {
+            var pwd = document.getElementById("pwd").value;
+            if(pwd.length == 0) document.getElementById("msg4").innerText = "NO STRENGTH";
+            else if(pwd.length > 0 && pwd.length < 8) document.getElementById("msg4").innerText = "POOR";
+            else {
+                document.getElementById("msg4").innerText = "GOOD";
+                document.getElementById("msg4").style.color = "Green";
+            }
+        }
+
+        function v5() {
+            var pwd = document.getElementById("pwd").value;
+            var cpwd = document.getElementById("cpwd").value;
+            if (cpwd == null) {}
+            else if(pwd === cpwd) {
+                document.getElementById("msg5").innerText = "MATCH";
+                document.getElementById("msg5").style.color = "Green";
+            }
+            else document.getElementById("msg5").innerText = "MIS-MATCH";
+        }
+
+        function v6(){
+            var age=Number(document.getElementById("age").value);
+            if(age>100 || age<6){
+                document.getElementById("msg6").innerText="POOR";
+                document.getElementById("msg6").style.color="Red";
+            }
+            else{
+                document.getElementById("msg6").innerText="GOOD";
+                document.getElementById("msg6").style.color="Green"; 
+            }
+        }
+
+        function v7(){
+            var mobnum_regex = /^\d{10}$/;
+            var mobile = document.getElementById("mobile").value;
+            if(mobile.length == 0) {}
+            else if(!mobile.match(mobnum_regex)){
+                document.getElementById("msg7").innerText="POOR";
+                document.getElementById("msg7").style.color="Red";
+            }
+            else{
+                document.getElementById("msg7").innerText="GOOD";
+                document.getElementById("msg7").style.color="Green"; 
+            }
+        }
+
+        function v8(){
+            var address = document.getElementById("address").value;
+            if(address.length == 0) {}
+            else if(address.length <= 5 ){
+                document.getElementById("msg8").innerText="POOR";
+                document.getElementById("msg8").style.color="Red";
+            }
+            else{
+                document.getElementById("msg8").innerText = "GOOD";
+                document.getElementById("msg8").style.color="Green";
+            }
+        }
+        function v9(){
+            var state = document.getElementById("state").value;
+            if(state.length == 0) {}
+            else if(state.length < 3 ){
+                document.getElementById("msg9").innerText="POOR";
+                document.getElementById("msg9").style.color="Red";
+            }
+            else{
+                document.getElementById("msg9").innerText = "GOOD";
+            }
+        }
+    </script>
+    <style>
+        table {
+            width: 700px;
+        }
+        .ip {
+            width: 415px;
+        }
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: grid; grid-template-rows: auto auto auto;">
+        <center><div><h1 style="color: blue;">Registration Form</h1></div>
+        <div>
+            <form action="" style="font-size: large;">
+                <table cellspacing="0"  border="0" cellpadding="3px">
+                    <tr><th>First Name</th><td><input class="ip" type="text" name="fname" onkeyup="v1()" id="fname"></td> <td><span id="msg1">POOR</span></td></tr>
+                    <tr><th>Last Name</th><td><input class="ip" type="text" name="lname" onkeyup="v2()" id="lname" ></td> <td><span id="msg2">POOR</span></td></tr>
+                    <tr><th>Email</th><td><input class="ip" type="email" name="email" onkeyup="v3()" id="email"></td> <td><span id="msg3">POOR</span></td></tr>
+                    <tr><th>Password</th><td><input class="ip" type="password" name="pass"  onkeyup="v4()" name="password" id="pwd"></td> <td><span id="msg4">POOR</span></td></tr>
+                    <tr><th>Re-Enter Password</th><td><input class="ip" type="password" name="repass" onkeyup="v5()" name="cpassword" id="cpwd"></td> <td><span id="msg5">POOR</span></td></tr>
+        
+                    <tr><th rowspan="2">Gender</th><td><input type="radio" name="gender" id="" checked>Male</td></tr>
+                    <tr><td><input type="radio" name="gender" id="">Female</td></tr>
+                    
+                    <tr><th>Age</th><td><input class="ip" type="number" name="age" onkeyup="v6()" id="age"> <td><span id="msg6">POOR</span></td></td></tr>
+                    <tr><th>Phone</th><td><input class="ip" type="number" name="pno" onkeyup="v7()" id="mobile"> <td><span id="msg7">POOR</span></td></td></tr>
+                    <tr><th>Address</th><td><textarea name="address" onkeyup="v8()" id="address" cols="54" rows="5"></textarea></td> <td><span id="msg8">POOR</span></td></tr>
+                    <tr><th>State</th><td><input class="ip" type="text" name="state"  onkeyup="v9()" id="state"></td> <td><span id="msg9">POOR</span></td></tr>
+                    <tr><th>Country</th><td><select class="ip" name="country" id="">
+                        <option value="india">India</option>
+                        <option value="uk">UK</option>
+                        <option value="swiss">Switzerland</option>
+                        <option value="nzl">New Zealand</option>
+                        <option value="chi">China</option>
+                        <option value="aus">Australia</option>
+                        <option value="usa">USA</option>
+                    </select></td></tr>
+                    <tr><th>Languages Known</th><td>
+                        <input type="checkbox" name="eng" id="">English
+                        <input type="checkbox" name="kan" id="">Kannada
+                        <input type="checkbox" name="hin" id="">Hindi
+                        <input type="checkbox" name="tel" id="">Telugu</td>
+                    </tr>
+                    <tr><td style="margin-left: 0;" colspan="2"><input type="checkbox" name="declaration" id="">&nbsp;Hereby I declare all the given details are true.</td></tr>
+                    <tr><td colspan="3"><p style="margin: 0; margin-left: 68%;">Login to <a href="https://www.ethnus.com">Ethnus</a> website</p></td></tr>
+                </table><br>
+                <button type="button" style="width: 120px; height: 40px; border-radius: 20px; background-color: red; color: white;" name="Register" id="" >Register</button>  
+            </form>
+        </div></center>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function showDate() {
+            const date = new Date();
+            document.getElementById("date").textContent = date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
+        }
+
+        function showTime() {
+            const date = new Date();
+            weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+            document.getElementById("time").innerText = weekdays[date.getDay()]+" "+ months[date.getMonth()]+" "+date.getUTCDate()+" "+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+" GMT +05:30 Indian Standard Time";
+        }
+    </script>
+    <title>js_task-4</title>
+</head>
+<body>
+    <button type="button" onclick="showDate()" id="Show Date">Show Date</button><br>
+    <span id="date"></span><br><br>
+    <button type="button" onclick="showTime()" id="Show Time">Show Time</button><br>
+    <span id="time"></span>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function sort() {
+            var string = document.getElementById("text").value.toString();
+            document.getElementById("msg").innerText = string.split("").sort().join("");
+        }
+    </script>
+    <title>js_task-2</title>
+</head>
+<body>
+    <label for="text">Example x: </label>
+    <input type="text" id="text">
+    <button type="button" onclick="sort()">Sort</button><br>
+    <p>Expected output:<span id="msg"></span></p>
+</body>
+</html>

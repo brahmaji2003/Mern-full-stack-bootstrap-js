@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function validate(){
+            uname=document.getElementById("name").value;
+            email=document.getElementById("email").value;
+            url=document.getElementById("url").value;
+            msg=document.getElementById("msg").value;
+            var cnt=0;
+            if(uname.length<6){
+                cnt++;
+                document.getElementById("msg1").innerText="This field is required";
+                document.getElementById("msg1").style.color="red";
+            }
+            else{
+                document.getElementById("msg1").innerText="";
+            }
+            if(!email.match(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/)){
+                cnt++;
+                document.getElementById("msg2").innerText="A valid email address is required";
+                document.getElementById("msg2").style.color="red";
+            }
+            else{
+                document.getElementById("msg2").innerText="";
+            }
+            if(!url.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/)){
+                cnt++;
+                document.getElementById("msg3").innerText="This valid url is required";
+                document.getElementById("msg3").style.color="red";
+            }
+            else{
+                document.getElementById("msg3").innerText="";
+            }
+            if(msg.length==0){
+                cnt++;
+                document.getElementById("msg4").innerText="This field is required";
+                document.getElementById("msg4").style.color="red";
+            }
+            else{
+                document.getElementById("msg4").innerText="";
+            }
+            if(cnt>0){
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <title>js_task-5</title>
+    <style>
+        * {
+            font-size: medium
+        }
+        body {
+            display: grid;
+        }
+        .container {
+            margin-top: 10%;
+            place-self: center;
+            width: 500px;
+        }
+        .form {
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
+            justify-content: space-evenly; 
+            width: 500px;
+        }
+        label, input, textarea {
+            margin-bottom: 9%;
+        }
+        #submit {
+            width: 350px;
+        }
+        span {
+            margin-left: 9%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" onsubmit="return validate()">
+            <div class="form">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name"><span id="msg1"></span>
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email"><span id="msg2"></span>
+                <label for="url">Website: </label>
+                <input type="text" name="email" id="url"><span id="msg3"></span>
+                <label for="msg">Message: </label>
+                <textarea name="msg" id="msg" cols="30" rows="5"></textarea><span id="msg4"></span>
+            </div>
+            <input style="font-size: large;" type="submit" name="Submit" id="submit">
+        </form>
+    </div>
+</body>
+</html>

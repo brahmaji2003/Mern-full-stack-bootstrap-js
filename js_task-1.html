@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_task-1</title>
+    <style>
+        * {
+            font-size: medium
+        }
+    </style>
+    <script>
+        function reverse() {
+            var number = document.getElementById("number").value;
+            document.getElementById("msg").innerText = number.split("").reverse().join("");
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <label for="num">Example x = </label>
+    <input type="number" id="number">
+    <button type="button" id="reverse" onclick="reverse()">Reverse</button><br>
+    <p>Expected output:<span id="msg"></span></p>
+
+
+</body>
+</html>
+
+
+
